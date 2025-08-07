@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Online Community Centre - The Online Community Centre is a dynamic e-platform that fosters community engagement through social gatherings and skill training programs.">
+    <meta name="keywords" content="reviews, testimonials, community">
+    <title>Online Community Centre | Home</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="jquery.slicknav.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#nav_menu').slicknav({prependTo:"#mobilemenu",
+            allowParentLinks: true, /* allows clicking on parent menu items */
+            parentTag: 'a', /*  ensures handling of parent links */
+            duplicate: true, /*  makes a separate clickable link for parent items */
+            closeOnClick: true, /* ensures menu closes when link is clicked on */
+            removeClasses: true, /* removes classes which could interefere w/ links */
+            active: true /* makes sure active states are handled */
+        });
+     }); /* parameter used to add mobile menu to another
+                    nav element that has an ID of #slickNavMenu.
+                    without prependTo:, the menu would be added at the beginning of the body element. */
+    </script>
+</head>
+<body>
+    <section> <!-- nav menu and header-->
+        <header> 
+            <a href="index.html"> <!-- this makes the logo a link to the home page-->
+                <img src="OCC project/logoOCC3.jpg" alt="Online Community Centre Logo" id="logo">
+            </a>
+            <h1>Online Community Centre</h1>
+        </header>
+        <nav id="mobilemenu"></nav>
+        <nav id="nav_menu">
+            <ul>
+                <li><a href="index.html" >Home</a></li>
+                <li>
+                    <a href="about_us.html">About Us</a>
+                    <ul>
+                        <li><a href="reviews.html" class="current">Testimonials</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="user_registration.html">Sign Up</a></li>
+                <li>
+                    <a href="events.html">Events and Promotions</a>
+                    <ul>
+                        <li><a href="discounts.html">Deals and Discounts</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        </section>
+        <aside>
+            <h1> Additional Resources </h1> 
+            <ul>
+                <li><a href="https://www.city.ac.uk/prospective-students/career-development">Career Development</a></li>
+                <li><a href="https://www.skillsforcareers.education.gov.uk/pages/training-choice/skills-bootcamp">Skills Bootcamp</a></li>
+            </ul> 
+        </aside>  
+        <section> <!-- this is the button for dark/light mode --> 
+            <button id="dark_mode_toggle">Dark Mode</button>
+        </section>
+    <main>
+        <section> 
+            <h1> Satisfied Participants </h1>
+                <p>The Online Community Centre is committed to providing high-quality programs and events while ensuring a seamless and engaging experience for our participants. 
+                    <br>
+                    <br>
+                    With a dedicated team, a diverse program catalogue, and a focus on community satisfaction, we aim to be the preferred choice for online community engagement. 
+                    <br>
+                    <br>
+                    Here are some feedback from our satisfied participants:
+                </p>
+                <ul>
+                    <li id="review1"><b>Lucy H.</b> <i>“The Online Community Centre has been a wonderful resource for me. I've learned so much and made great connections.”</i></li>
+                    <li id="review2"><b>Raj P.</b> <i>“I appreciate the variety of programs available. The digital literacy training has been particularly helpful for my career.”</i></li>
+                    <li id="review3"><b>Emma T.</b> <i>“The staff at the Online Community Centre is incredibly supportive. They go above and beyond to ensure everyone has a positive experience.”</i></li>
+                </ul>
+        </section>
+    </main>
+
+
+    <script> //dark/light mode option for light-sensitive users
+        // wait for the DOM to fully load first
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.getElementById("dark_mode_toggle");
+            const body = document.body;
+
+            // apply dark mode from localStorage (user preference)
+            function applyDarkModePreference() {
+                const isDarkMode = localStorage.getItem("dark_mode"); // Retrieve user preference
+                if (isDarkMode === "enabled") {
+                    body.classList.add("dark_mode");
+                    toggleButton.textContent = "Light Mode";
+                } else {
+                    body.classList.remove("dark_mode");
+                    toggleButton.textContent = "Dark Mode";
+                }
+            }
+
+            // users can toggle the mode and the site will save the preference 
+            toggleButton.addEventListener("click", function() {
+                body.classList.toggle("dark_mode");
+                const darkModeEnabled = body.classList.contains("dark_mode");
+                localStorage.setItem("dark_mode", darkModeEnabled ? "enabled" : "disabled");
+                toggleButton.textContent = darkModeEnabled ? "Light Mode" : "Dark Mode";
+            });
+
+            // this will apply the dark mode preference upon loading the page 
+            applyDarkModePreference();
+        });
+    </script>
+
+    <script> // fade-in effect for paragraphs
+        $(document).ready(function() {
+            $('p').hide().fadeIn(700);
+        });
+    </script>
+    <footer> 
+        <p>&copy; 2024 Online Community Centre</p>
+    </footer>
+</body>
+</html>

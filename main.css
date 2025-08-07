@@ -1,0 +1,285 @@
+/* this is the main style sheet for all of the pages*/ 
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.5;
+    background-color: rgb(173, 159, 136);
+    color: rgb(75, 61, 42);
+    padding: 0 1em;
+    width: 95%; /* sets page to occupy 95% of the browser window */
+    margin: 0 auto;
+    position: relative; /* will move in relation to where it is in normal flow; fluid layout implementation */
+    max-width: 1024px; /* sets max page width */
+}
+
+/* heading hierarchy for accessiblity */ 
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 1em 0 0.5em;
+}
+
+/* dark mode */
+body.dark_mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #767016;
+    color: rgb(232, 223, 205);
+    border: none;
+    cursor: pointer;
+}
+
+/* fluid layout for structural elements*/ 
+header, main, footer {
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-bottom: rgb(159, 96, 7) 5px double;
+    text-decoration: underline;
+    background-color: rgb(149, 132, 56);
+}
+
+#logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+
+aside {
+    float: right; 
+    padding-left: 40px;
+    width: 25%;
+}
+
+/* slicknav positioning */ 
+/* Add this to your main.css */
+.slicknav_nav .slicknav_row {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.slicknav_nav .slicknav_item {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+}
+
+.slicknav_nav .slicknav_item a {
+    display: block;
+}
+
+
+/* nav menu  */
+
+#nav_menu ul {
+    list-style: none;
+    position: relative;    /* So the first submenu can be positioned within the main menu and
+     ensures relative positioning for child submenus */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#nav_menu ul li {
+    float: left;
+    width: 20%;
+}
+
+#nav_menu ul li a {
+    text-align: center;
+    display: block;
+    padding: 1em 0;
+    text-decoration: none;
+    background-color: rgb(62, 52, 19);
+    color: rgb(178, 177, 171);
+    font-weight: bold;
+}
+
+#nav_menu ul li a.current {
+    color: rgb(146, 146, 124);
+}
+
+#nav_menu ul li a:hover,
+#nav_menu ul li a:focus {
+    background-color: rgb(69, 64, 64);
+}
+
+/* Submenu Styles */
+#nav_menu ul ul {
+    display: none;         /* Don't display submenu until hover of the li element */
+    position: absolute;
+    width: 25%; /* matches parent li width */
+    
+}
+
+#nav_menu ul li:hover > ul {
+    display: block;        /* Display the submenu on hover of the li element */
+}
+
+#nav_menu ul ul li {
+    float: none;           /* Display the submenus vertically */
+    position: relative;    /* So the second submenu can be positioned within the first submenu */
+    width: 100% /* makes subemnu items the full wdith of the subemnu as well */ 
+}
+
+/* can format the additional resources links in the aside section using CSS pseudo-classes */
+aside ul li a {
+    text-decoration: none; /* removes the underline from links */
+}
+
+aside ul li a:link {
+    color: green;
+}
+
+aside ul li a:visited {
+    color: brown;
+}
+
+aside ul li a:hover,
+aside ul li a:focus {
+    color: pink;
+}
+
+footer {
+    clear: both;
+    background-color: darkolivegreen;
+    color: white;
+    margin-top: 2em;
+}
+
+/* for desktop first coding, hide mobile menu initially */
+#mobilemenu {
+    display: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 900px) {
+    body {
+        font-size: .875em;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    /* will hide the default wide nav menu */
+    #nav_menu {
+        display: none;
+    }
+    
+    /* will display the mobile menu to replace nav menu */
+    #mobilemenu {
+        display: block;
+    }
+
+    .slicknav_menu {
+        display: block;
+        background: #36312d;
+        padding: 0.5em;
+    }
+    
+    .slicknav_btn {
+        margin: 5px 5px 6px;
+    }
+    
+    header {
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+    }
+    
+    aside {
+        float: none;
+        width: 100%;
+        padding-left: 0;
+        margin-bottom: 1em;
+    }
+    body {
+        padding: 0 0.5em;
+    }
+    
+    header {
+        padding: 0.5em;
+    }
+    
+
+    #logo {
+        max-width: 150px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    body {
+        font-size: 85%;
+        width: 100%;
+        padding: 0 0.25em;
+    }
+    
+    header {
+        padding: 5px 10px;
+    }
+    
+    #logo {
+        max-width: 120px;
+    }
+}
+
+/* table styling */
+table {
+    width: 100%; 
+    border-collapse: collapse; /* Remove gaps between table cells */
+    margin: 20px 0;
+    text-align: left; /* shift text to the left */
+}
+
+/*  borders & spacing for cells */
+table th, table td {
+    border: 1px solid #512525; 
+    padding: 12px;
+}
+/* styling for table headers */
+table th {
+    background-color: #ababab; 
+    font-weight: bold;
+}
+
+/* row styling */
+table tr:nth-child(even) {
+    background-color: #9ea28e; /* will alternate row colour */
+}
+
+table tr:nth-child(odd) {
+    background-color: #8f8c8c; /* gives odd rows different colour */
+}
+
+table caption {
+    font-size: 1.5em; 
+    font-weight: bold; 
+}
+
+/* responsive table styling */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 14px; /* reduces font size on smaller screens */
+    }
+    table th, table td {
+        padding: 8px; /* reduces padding on smaller screens */
+    }
+}

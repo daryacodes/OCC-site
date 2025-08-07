@@ -1,0 +1,142 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(173, 159, 136);
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 95%;
+    padding: 0 1em;
+    position: relative;
+}
+
+/* Main content layout */
+main {
+    position: relative;
+    clear: both;
+    padding: 1em;
+    margin-right: 200px; /* Make space for aside */
+}
+
+/* Aside positioning */
+aside {
+    position: absolute;
+    top: 150px; /* Adjust based on your header height */
+    right: 0;
+    width: 180px;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1; /* Keep aside above other content */
+}
+
+/* Navigation menu styling */
+#nav_menu {
+    clear: both;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+#nav_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #5e614d;
+    width: 100%;
+}
+
+/* Form styling */
+form {
+    background-color: white;
+    padding: 2em;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+div {
+    margin-bottom: 1em;
+}
+
+label {
+    display: inline-block;
+    width: 11em;
+    text-align: right;
+    vertical-align: top;
+}
+
+input, select, textarea {
+    margin-left: 1em;
+    margin-right: 0.5em;
+    font-family: inherit;
+}
+
+select { 
+    width: 22.5em; 
+}
+
+textarea {
+    height: 5em;
+    width: 20em;
+}
+
+span {
+    color: red;
+    vertical-align: top;
+}
+
+/* Error messages styling */
+.messages {
+    border: 3px solid red;
+    color: red;
+    padding: 2em;
+    margin-bottom: 2em;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    z-index: 0; /* Keep under aside */
+}
+
+/* Button styling */
+input[type="button"] {
+    background-color: #5e614d;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #838671;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    main {
+        margin-right: 1px;
+        margin-left: 1px;
+        padding: 0.5em;
+    }
+    
+    aside {
+        position: static;
+        width: 100%;
+        margin-bottom: 2em;
+    }
+    
+    label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 0.5em;
+    }
+    
+    input, select, textarea {
+        width: 100%;
+        margin-left: 0;
+    }
+}
